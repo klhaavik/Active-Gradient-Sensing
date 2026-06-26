@@ -1,0 +1,3062 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[    128515,       3054]
+NotebookOptionsPosition[    126469,       3011]
+NotebookOutlinePosition[    126934,       3029]
+CellTagsIndexPosition[    126891,       3026]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"\[Alpha]", "=", "1"}], "\[IndentingNewLine]", 
+ RowBox[{"\[Rho]", "=."}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.9905214187667065`*^9, 3.9905214439439964`*^9}, {
+  3.99052202892276*^9, 3.9905220459347496`*^9}, {3.9905220775926075`*^9, 
+  3.990522096696619*^9}, {3.990531348778061*^9, 3.990531360839855*^9}, {
+  3.9905447107099495`*^9, 3.9905447116770153`*^9}},
+ CellLabel->"In[21]:=",ExpressionUUID->"954e650b-e199-1f40-934f-5e4e3fca3565"],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{
+  3.990521436388092*^9, 3.9905219979157753`*^9, {3.9905220459487514`*^9, 
+   3.9905220972504807`*^9}, 3.990530937472971*^9, 3.990531361376091*^9, 
+   3.9905447179214573`*^9},
+ CellLabel->"Out[21]=",ExpressionUUID->"4a190535-d0b7-fa4f-9784-caec1812cfbd"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ie", "[", 
+   RowBox[{"l_", ",", "\[Epsilon]_"}], "]"}], ":=", 
+  RowBox[{"BesselI", "[", 
+   RowBox[{"l", ",", 
+    RowBox[{"2", "*", "\[Epsilon]"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ke", "[", 
+   RowBox[{"l_", ",", "\[Epsilon]_"}], "]"}], ":=", 
+  RowBox[{"BesselK", "[", 
+   RowBox[{"l", ",", 
+    RowBox[{"2", "*", "\[Epsilon]"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"i0", "[", 
+   RowBox[{"l_", ",", "\[Epsilon]_"}], "]"}], ":=", 
+  RowBox[{"BesselI", "[", 
+   RowBox[{"l", ",", 
+    RowBox[{"2", "*", "\[Epsilon]", "*", 
+     RowBox[{"Sqrt", "[", "\[Rho]", "]"}]}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"k0", "[", 
+   RowBox[{"l_", ",", "\[Epsilon]_"}], "]"}], ":=", 
+  RowBox[{"BesselK", "[", 
+   RowBox[{"l", ",", 
+    RowBox[{"2", "*", "\[Epsilon]", "*", 
+     RowBox[{"Sqrt", "[", "\[Rho]", "]"}]}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.9905214536623306`*^9, 3.9905215653589478`*^9}, {
+  3.990521619328932*^9, 3.990521632043871*^9}, {3.990521669242859*^9, 
+  3.990521674729967*^9}, {3.990521713311943*^9, 3.9905217439235134`*^9}, {
+  3.99052203187496*^9, 3.990522033954813*^9}, {3.9905237691429443`*^9, 
+  3.99052384081629*^9}, {3.990530686734478*^9, 3.99053069498188*^9}},
+ CellLabel->"In[23]:=",ExpressionUUID->"816c78ef-6d05-de42-a8d8-83ba049e9297"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ie", "[", 
+  RowBox[{"l", ",", "\[Epsilon]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.9905217299519863`*^9, 3.9905217356602077`*^9}, {
+  3.99052384782078*^9, 3.9905239022965565`*^9}, {3.990524295850624*^9, 
+  3.9905242975280933`*^9}},
+ CellLabel->
+  "In[151]:=",ExpressionUUID->"99f9b548-979b-884b-a925-005d55c4d281"],
+
+Cell[BoxData[
+ RowBox[{"BesselI", "[", 
+  RowBox[{"l", ",", 
+   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]], "Output",
+ CellChangeTimes->{{3.9905238798889694`*^9, 3.990523902487623*^9}, 
+   3.9905242982859592`*^9},
+ CellLabel->
+  "Out[151]=",ExpressionUUID->"e53a9ba5-a1c2-454c-9f61-3607e89d811f"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   SubscriptBox["x", "0"], "[", "\[Epsilon]_", "]"}], ":=", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"2", "*", "\[Alpha]"}], 
+    RowBox[{"\[Epsilon]", "*", "\[Rho]"}]], "*", 
+   FractionBox[
+    RowBox[{"k0", "[", 
+     RowBox[{"1", ",", "\[Epsilon]"}], "]"}], 
+    RowBox[{
+     RowBox[{
+      RowBox[{"i0", "[", 
+       RowBox[{"1", ",", "\[Epsilon]"}], "]"}], "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"k0", "[", 
+         RowBox[{"0", ",", "\[Epsilon]"}], "]"}], "+", 
+        RowBox[{"k0", "[", 
+         RowBox[{"2", ",", "\[Epsilon]"}], "]"}]}], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"k0", "[", 
+       RowBox[{"1", ",", "\[Epsilon]"}], "]"}], "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"i0", "[", 
+         RowBox[{"0", ",", "\[Epsilon]"}], "]"}], "+", 
+        RowBox[{"i0", "[", 
+         RowBox[{"2", ",", "\[Epsilon]"}], "]"}]}], ")"}]}]}]]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["x", "1"], "[", "\[Epsilon]_", "]"}], ":=", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"6", "*", "\[Alpha]"}], 
+    RowBox[{"\[Epsilon]", "*", "\[Rho]"}]], "*", 
+   FractionBox[
+    RowBox[{"k0", "[", 
+     RowBox[{"3", ",", " ", "\[Epsilon]"}], "]"}], 
+    RowBox[{
+     RowBox[{
+      RowBox[{"i0", "[", 
+       RowBox[{"3", ",", "\[Epsilon]"}], "]"}], "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"k0", "[", 
+         RowBox[{"2", ",", "\[Epsilon]"}], "]"}], "+", 
+        RowBox[{"k0", "[", 
+         RowBox[{"4", ",", "\[Epsilon]"}], "]"}]}], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"k0", "[", 
+       RowBox[{"3", ",", "\[Epsilon]"}], "]"}], "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"i0", "[", 
+         RowBox[{"2", ",", "\[Epsilon]"}], "]"}], "+", 
+        RowBox[{"i0", "[", 
+         RowBox[{"4", ",", "\[Epsilon]"}], "]"}]}], ")"}]}]}]]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["y", "0"], "[", "\[Epsilon]_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"-", 
+    RowBox[{
+     SubscriptBox["x", "0"], "[", "\[Epsilon]", "]"}]}], "*", 
+   FractionBox[
+    RowBox[{
+     RowBox[{"ie", "[", 
+      RowBox[{"1", ",", "\[Epsilon]"}], "]"}], "-", 
+     RowBox[{"\[Epsilon]", "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"ie", "[", 
+         RowBox[{"0", ",", "\[Epsilon]"}], "]"}], "+", 
+        RowBox[{"ie", "[", 
+         RowBox[{"2", ",", "\[Epsilon]"}], "]"}]}], ")"}]}]}], 
+    RowBox[{
+     RowBox[{"ke", "[", 
+      RowBox[{"1", ",", "\[Epsilon]"}], "]"}], "+", 
+     RowBox[{"\[Epsilon]", "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"ke", "[", 
+         RowBox[{"0", ",", "\[Epsilon]"}], "]"}], "+", 
+        RowBox[{"ke", "[", 
+         RowBox[{"2", ",", "\[Epsilon]"}], "]"}]}], ")"}]}]}]]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   SubscriptBox["y", "1"], "[", "\[Epsilon]_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"-", 
+    RowBox[{
+     SubscriptBox["x", "1"], "[", "\[Epsilon]", "]"}]}], "*", 
+   FractionBox[
+    RowBox[{
+     RowBox[{"ie", "[", 
+      RowBox[{"3", ",", "\[Epsilon]"}], "]"}], "-", 
+     RowBox[{"\[Epsilon]", "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"ie", "[", 
+         RowBox[{"2", ",", "\[Epsilon]"}], "]"}], "+", 
+        RowBox[{"ie", "[", 
+         RowBox[{"4", ",", "\[Epsilon]"}], "]"}]}], ")"}]}]}], 
+    RowBox[{
+     RowBox[{"ke", "[", 
+      RowBox[{"3", ",", "\[Epsilon]"}], "]"}], "+", 
+     RowBox[{"\[Epsilon]", "*", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"ke", "[", 
+         RowBox[{"2", ",", "\[Epsilon]"}], "]"}], "+", 
+        RowBox[{"ke", "[", 
+         RowBox[{"4", ",", "\[Epsilon]"}], "]"}]}], ")"}]}]}]]}]}]}], "Input",
+ CellChangeTimes->{{3.9905217566629753`*^9, 3.990521975810816*^9}, {
+  3.9905220369514103`*^9, 3.990522043297388*^9}, {3.990522112668934*^9, 
+  3.9905221291615944`*^9}, {3.9905223366384735`*^9, 3.9905223488310223`*^9}, {
+  3.990522633293846*^9, 3.9905226410086136`*^9}, {3.9905234705052605`*^9, 
+  3.990523475308895*^9}, {3.990523703781376*^9, 3.990523718790102*^9}, {
+  3.990523914043833*^9, 3.990523950877857*^9}, {3.990525112138115*^9, 
+  3.9905251134789867`*^9}, {3.9905254761161556`*^9, 3.990525479190531*^9}},
+ CellLabel->"In[27]:=",ExpressionUUID->"3ac3a6af-84ff-8141-bcf1-cfa37ccc06e6"],
+
+Cell[BoxData[
+ RowBox[{"FullForm", "[", 
+  RowBox[{
+   SubscriptBox["x", "0"], "[", "\[Epsilon]", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.9905223101296043`*^9, 3.9905223282438297`*^9}, {
+  3.9905234568817043`*^9, 3.9905234600741863`*^9}, {3.9905235054546204`*^9, 
+  3.9905235121106987`*^9}, {3.990524319987091*^9, 3.9905243336341248`*^9}},
+ CellLabel->
+  "In[159]:=",ExpressionUUID->"12ddb8ff-ada4-3247-869c-922bb3f08f65"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"snr", "[", "\[Epsilon]_", "]"}], ":=", 
+  FractionBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SubscriptBox["x", "1"], "[", "\[Epsilon]", "]"}], "*", 
+     RowBox[{"ie", "[", 
+      RowBox[{"3", ",", "\[Epsilon]"}], "]"}]}], "+", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["y", "1"], "[", "\[Epsilon]", "]"}], "*", 
+     RowBox[{"ke", "[", 
+      RowBox[{"3", ",", "\[Epsilon]"}], "]"}]}]}], 
+   RowBox[{"Sqrt", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       SubscriptBox["x", "0"], "[", "\[Epsilon]", "]"}], "*", 
+      RowBox[{"ie", "[", 
+       RowBox[{"1", ",", "\[Epsilon]"}], "]"}]}], "+", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["y", "0"], "[", "\[Epsilon]", "]"}], "*", 
+      RowBox[{"ke", "[", 
+       RowBox[{"1", ",", "\[Epsilon]"}], "]"}]}]}], "]"}]]}]], "Input",
+ CellChangeTimes->{{3.9905221482388916`*^9, 3.9905222098033733`*^9}, {
+   3.990522278005043*^9, 3.9905223001282253`*^9}, {3.9905223650530243`*^9, 
+   3.990522378962612*^9}, 3.9905226505249557`*^9, {3.990523342232849*^9, 
+   3.990523346615965*^9}, {3.9905235271665325`*^9, 3.990523614054329*^9}, 
+   3.99052373747645*^9, {3.9905239584042377`*^9, 3.9905239615069427`*^9}, {
+   3.9905243813169575`*^9, 3.9905243859085083`*^9}, {3.9905271346879177`*^9, 
+   3.9905271376757717`*^9}},
+ CellLabel->"In[31]:=",ExpressionUUID->"7b130e47-bc4f-004e-be9b-4f03bcbc0747"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"snr", "[", "0.45", "]"}]], "Input",
+ CellChangeTimes->{{3.9905308571106396`*^9, 3.99053087327474*^9}, {
+  3.990530904770235*^9, 3.9905309109352093`*^9}},
+ CellLabel->
+  "In[281]:=",ExpressionUUID->"4d049faf-f52c-cc4b-a4e8-58245decd0ae"],
+
+Cell[BoxData["0.2205837475280581`"], "Output",
+ CellChangeTimes->{
+  3.9905308736038895`*^9, {3.9905309057456055`*^9, 3.990530911341156*^9}},
+ CellLabel->
+  "Out[281]=",ExpressionUUID->"6f6adf42-a9d1-4444-9040-b21e44d3e94d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Dsnr", "[", "\[Epsilon]_", "]"}], "=", 
+  RowBox[{"D", "[", 
+   RowBox[{
+    RowBox[{"snr", "[", "\[Epsilon]", "]"}], ",", "\[Epsilon]"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.9905307939437027`*^9, 3.9905308461917133`*^9}, {
+  3.9905308790685806`*^9, 3.9905308848146057`*^9}},
+ CellLabel->"In[32]:=",ExpressionUUID->"1235ca0e-071f-744e-b94c-c7cf1a47e36a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"2", " ", 
+              RowBox[{"BesselI", "[", 
+               RowBox[{"1", ",", 
+                RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+              RowBox[{"BesselK", "[", 
+               RowBox[{"1", ",", 
+                RowBox[{"2", " ", "\[Epsilon]", " ", 
+                 SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], "/", 
+            RowBox[{"(", 
+             RowBox[{
+              SuperscriptBox["\[Epsilon]", "2"], " ", "\[Rho]", " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"BesselI", "[", 
+                    RowBox[{"0", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                   RowBox[{"BesselI", "[", 
+                    RowBox[{"2", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"1", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+                RowBox[{
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"1", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"BesselK", "[", 
+                    RowBox[{"0", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                   RowBox[{"BesselK", "[", 
+                    RowBox[{"2", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], 
+             ")"}]}], ")"}]}], "+", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"BesselI", "[", 
+               RowBox[{"0", ",", 
+                RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+              RowBox[{"BesselI", "[", 
+               RowBox[{"2", ",", 
+                RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}], " ", 
+            RowBox[{"BesselK", "[", 
+             RowBox[{"1", ",", 
+              RowBox[{"2", " ", "\[Epsilon]", " ", 
+               SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], "/", 
+          RowBox[{"(", 
+           RowBox[{"\[Epsilon]", " ", "\[Rho]", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+               RowBox[{"BesselK", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+              RowBox[{
+               RowBox[{"BesselI", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], 
+           ")"}]}], "+", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"BesselI", "[", 
+               RowBox[{"1", ",", 
+                RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "-", 
+              RowBox[{"\[Epsilon]", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], 
+             ")"}], " ", 
+            RowBox[{"BesselK", "[", 
+             RowBox[{"1", ",", 
+              RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+            RowBox[{"BesselK", "[", 
+             RowBox[{"1", ",", 
+              RowBox[{"2", " ", "\[Epsilon]", " ", 
+               SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], "/", 
+          RowBox[{"(", 
+           RowBox[{
+            SuperscriptBox["\[Epsilon]", "2"], " ", "\[Rho]", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"BesselK", "[", 
+               RowBox[{"1", ",", 
+                RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+              RowBox[{"\[Epsilon]", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], 
+             ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+               RowBox[{"BesselK", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+              RowBox[{
+               RowBox[{"BesselI", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], 
+           ")"}]}], "+", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"3", " ", 
+               RowBox[{"BesselI", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], "+", 
+              RowBox[{"BesselI", "[", 
+               RowBox[{"3", ",", 
+                RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}], " ", 
+            RowBox[{"BesselK", "[", 
+             RowBox[{"1", ",", 
+              RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+            RowBox[{"BesselK", "[", 
+             RowBox[{"1", ",", 
+              RowBox[{"2", " ", "\[Epsilon]", " ", 
+               SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], "/", 
+          RowBox[{"(", 
+           RowBox[{"\[Rho]", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"BesselK", "[", 
+               RowBox[{"1", ",", 
+                RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+              RowBox[{"\[Epsilon]", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], 
+             ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+               RowBox[{"BesselK", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+              RowBox[{
+               RowBox[{"BesselI", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], 
+           ")"}]}], "-", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"BesselI", "[", 
+               RowBox[{"1", ",", 
+                RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "-", 
+              RowBox[{"\[Epsilon]", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], 
+             ")"}], " ", 
+            RowBox[{"BesselK", "[", 
+             RowBox[{"1", ",", 
+              RowBox[{"2", " ", "\[Epsilon]", " ", 
+               SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", 
+               RowBox[{"BesselK", "[", 
+                RowBox[{"0", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], "-", 
+              RowBox[{"BesselK", "[", 
+               RowBox[{"2", ",", 
+                RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}], ")"}], "/", 
+          RowBox[{"(", 
+           RowBox[{"\[Epsilon]", " ", "\[Rho]", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"BesselK", "[", 
+               RowBox[{"1", ",", 
+                RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+              RowBox[{"\[Epsilon]", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], 
+             ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+               RowBox[{"BesselK", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+              RowBox[{
+               RowBox[{"BesselI", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], 
+           ")"}]}], "+", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"2", " ", 
+            RowBox[{"BesselI", "[", 
+             RowBox[{"1", ",", 
+              RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", 
+               RowBox[{"BesselK", "[", 
+                RowBox[{"0", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}]}], "-", 
+              RowBox[{"BesselK", "[", 
+               RowBox[{"2", ",", 
+                RowBox[{"2", " ", "\[Epsilon]", " ", 
+                 SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}], ")"}], "/", 
+          RowBox[{"(", 
+           RowBox[{"\[Epsilon]", " ", 
+            SqrtBox["\[Rho]"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+               RowBox[{"BesselK", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+              RowBox[{
+               RowBox[{"BesselI", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], 
+           ")"}]}], "-", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"BesselI", "[", 
+               RowBox[{"1", ",", 
+                RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "-", 
+              RowBox[{"\[Epsilon]", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], 
+             ")"}], " ", 
+            RowBox[{"BesselK", "[", 
+             RowBox[{"1", ",", 
+              RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", 
+               RowBox[{"BesselK", "[", 
+                RowBox[{"0", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}]}], "-", 
+              RowBox[{"BesselK", "[", 
+               RowBox[{"2", ",", 
+                RowBox[{"2", " ", "\[Epsilon]", " ", 
+                 SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}], ")"}], "/", 
+          RowBox[{"(", 
+           RowBox[{"\[Epsilon]", " ", 
+            SqrtBox["\[Rho]"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"BesselK", "[", 
+               RowBox[{"1", ",", 
+                RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+              RowBox[{"\[Epsilon]", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], 
+             ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+               RowBox[{"BesselK", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+              RowBox[{
+               RowBox[{"BesselI", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], 
+           ")"}]}], "+", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"BesselI", "[", 
+               RowBox[{"1", ",", 
+                RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "-", 
+              RowBox[{"\[Epsilon]", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], 
+             ")"}], " ", 
+            RowBox[{"BesselK", "[", 
+             RowBox[{"1", ",", 
+              RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+            RowBox[{"BesselK", "[", 
+             RowBox[{"1", ",", 
+              RowBox[{"2", " ", "\[Epsilon]", " ", 
+               SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"-", "3"}], " ", 
+               RowBox[{"BesselK", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], "-", 
+              RowBox[{"BesselK", "[", 
+               RowBox[{"3", ",", 
+                RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}], ")"}], "/", 
+          RowBox[{"(", 
+           RowBox[{"\[Rho]", " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"BesselK", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+               RowBox[{"\[Epsilon]", " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"BesselK", "[", 
+                   RowBox[{"0", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+                  RowBox[{"BesselK", "[", 
+                   RowBox[{"2", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], 
+              ")"}], "2"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+               RowBox[{"BesselK", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+              RowBox[{
+               RowBox[{"BesselI", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], 
+           ")"}]}], "-", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"2", " ", 
+            RowBox[{"BesselI", "[", 
+             RowBox[{"1", ",", 
+              RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+            RowBox[{"BesselK", "[", 
+             RowBox[{"1", ",", 
+              RowBox[{"2", " ", "\[Epsilon]", " ", 
+               SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"2", " ", 
+                  SqrtBox["\[Rho]"], " ", 
+                  RowBox[{"BesselI", "[", 
+                   RowBox[{"1", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+                 RowBox[{
+                  SqrtBox["\[Rho]"], " ", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"BesselI", "[", 
+                    RowBox[{"1", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                    RowBox[{"BesselI", "[", 
+                    RowBox[{"3", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}], " ", 
+               RowBox[{"BesselK", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+              RowBox[{
+               SqrtBox["\[Rho]"], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", 
+                  RowBox[{"BesselK", "[", 
+                   RowBox[{"0", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], "-", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}], "+", 
+              RowBox[{
+               SqrtBox["\[Rho]"], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}], "+", 
+              RowBox[{
+               RowBox[{"BesselI", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "2"}], " ", 
+                  SqrtBox["\[Rho]"], " ", 
+                  RowBox[{"BesselK", "[", 
+                   RowBox[{"1", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+                 RowBox[{
+                  SqrtBox["\[Rho]"], " ", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{"BesselK", "[", 
+                    RowBox[{"1", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], "-", 
+                    RowBox[{"BesselK", "[", 
+                    RowBox[{"3", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}]}], 
+             ")"}]}], ")"}], "/", 
+          RowBox[{"(", 
+           RowBox[{"\[Epsilon]", " ", "\[Rho]", " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"BesselI", "[", 
+                   RowBox[{"0", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                  RowBox[{"BesselI", "[", 
+                   RowBox[{"2", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+                RowBox[{"BesselK", "[", 
+                 RowBox[{"1", ",", 
+                  RowBox[{"2", " ", "\[Epsilon]", " ", 
+                   SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+               RowBox[{
+                RowBox[{"BesselI", "[", 
+                 RowBox[{"1", ",", 
+                  RowBox[{"2", " ", "\[Epsilon]", " ", 
+                   SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"BesselK", "[", 
+                   RowBox[{"0", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                  RowBox[{"BesselK", "[", 
+                   RowBox[{"2", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}], "2"]}], 
+           ")"}]}], "+", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"2", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"BesselI", "[", 
+               RowBox[{"1", ",", 
+                RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "-", 
+              RowBox[{"\[Epsilon]", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], 
+             ")"}], " ", 
+            RowBox[{"BesselK", "[", 
+             RowBox[{"1", ",", 
+              RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+            RowBox[{"BesselK", "[", 
+             RowBox[{"1", ",", 
+              RowBox[{"2", " ", "\[Epsilon]", " ", 
+               SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"2", " ", 
+                  SqrtBox["\[Rho]"], " ", 
+                  RowBox[{"BesselI", "[", 
+                   RowBox[{"1", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+                 RowBox[{
+                  SqrtBox["\[Rho]"], " ", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"BesselI", "[", 
+                    RowBox[{"1", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                    RowBox[{"BesselI", "[", 
+                    RowBox[{"3", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}], " ", 
+               RowBox[{"BesselK", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+              RowBox[{
+               SqrtBox["\[Rho]"], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", 
+                  RowBox[{"BesselK", "[", 
+                   RowBox[{"0", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], "-", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}], "+", 
+              RowBox[{
+               SqrtBox["\[Rho]"], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}], "+", 
+              RowBox[{
+               RowBox[{"BesselI", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "2"}], " ", 
+                  SqrtBox["\[Rho]"], " ", 
+                  RowBox[{"BesselK", "[", 
+                   RowBox[{"1", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+                 RowBox[{
+                  SqrtBox["\[Rho]"], " ", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{"BesselK", "[", 
+                    RowBox[{"1", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], "-", 
+                    RowBox[{"BesselK", "[", 
+                    RowBox[{"3", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}]}], 
+             ")"}]}], ")"}], "/", 
+          RowBox[{"(", 
+           RowBox[{"\[Epsilon]", " ", "\[Rho]", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"BesselK", "[", 
+               RowBox[{"1", ",", 
+                RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+              RowBox[{"\[Epsilon]", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"0", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], 
+             ")"}], " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"BesselI", "[", 
+                   RowBox[{"0", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                  RowBox[{"BesselI", "[", 
+                   RowBox[{"2", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+                RowBox[{"BesselK", "[", 
+                 RowBox[{"1", ",", 
+                  RowBox[{"2", " ", "\[Epsilon]", " ", 
+                   SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+               RowBox[{
+                RowBox[{"BesselI", "[", 
+                 RowBox[{"1", ",", 
+                  RowBox[{"2", " ", "\[Epsilon]", " ", 
+                   SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"BesselK", "[", 
+                   RowBox[{"0", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                  RowBox[{"BesselK", "[", 
+                   RowBox[{"2", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}], "2"]}], 
+           ")"}]}]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"6", " ", 
+            RowBox[{"BesselI", "[", 
+             RowBox[{"3", ",", 
+              RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+            RowBox[{"BesselK", "[", 
+             RowBox[{"3", ",", 
+              RowBox[{"2", " ", "\[Epsilon]", " ", 
+               SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], "/", 
+          RowBox[{"(", 
+           RowBox[{"\[Epsilon]", " ", "\[Rho]", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"4", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+               RowBox[{"BesselK", "[", 
+                RowBox[{"3", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+              RowBox[{
+               RowBox[{"BesselI", "[", 
+                RowBox[{"3", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"4", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], 
+           ")"}]}], "-", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"6", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"BesselI", "[", 
+               RowBox[{"3", ",", 
+                RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "-", 
+              RowBox[{"\[Epsilon]", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"4", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], 
+             ")"}], " ", 
+            RowBox[{"BesselK", "[", 
+             RowBox[{"3", ",", 
+              RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+            RowBox[{"BesselK", "[", 
+             RowBox[{"3", ",", 
+              RowBox[{"2", " ", "\[Epsilon]", " ", 
+               SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], "/", 
+          RowBox[{"(", 
+           RowBox[{"\[Epsilon]", " ", "\[Rho]", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"BesselK", "[", 
+               RowBox[{"3", ",", 
+                RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+              RowBox[{"\[Epsilon]", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"4", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], 
+             ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselI", "[", 
+                  RowBox[{"4", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+               RowBox[{"BesselK", "[", 
+                RowBox[{"3", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+              RowBox[{
+               RowBox[{"BesselI", "[", 
+                RowBox[{"3", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"2", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"4", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], 
+           ")"}]}]}], ")"}]}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"2", " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"2", " ", 
+             RowBox[{"BesselI", "[", 
+              RowBox[{"1", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"1", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], "/", 
+           RowBox[{"(", 
+            RowBox[{"\[Epsilon]", " ", "\[Rho]", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"BesselI", "[", 
+                   RowBox[{"0", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                  RowBox[{"BesselI", "[", 
+                   RowBox[{"2", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+                RowBox[{"BesselK", "[", 
+                 RowBox[{"1", ",", 
+                  RowBox[{"2", " ", "\[Epsilon]", " ", 
+                   SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+               RowBox[{
+                RowBox[{"BesselI", "[", 
+                 RowBox[{"1", ",", 
+                  RowBox[{"2", " ", "\[Epsilon]", " ", 
+                   SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"BesselK", "[", 
+                   RowBox[{"0", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                  RowBox[{"BesselK", "[", 
+                   RowBox[{"2", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], 
+            ")"}]}], "-", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"2", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"BesselI", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "-", 
+               RowBox[{"\[Epsilon]", " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"BesselI", "[", 
+                   RowBox[{"0", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+                  RowBox[{"BesselI", "[", 
+                   RowBox[{"2", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], 
+              ")"}], " ", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"1", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"1", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], "/", 
+           RowBox[{"(", 
+            RowBox[{"\[Epsilon]", " ", "\[Rho]", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"BesselK", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+               RowBox[{"\[Epsilon]", " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"BesselK", "[", 
+                   RowBox[{"0", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+                  RowBox[{"BesselK", "[", 
+                   RowBox[{"2", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], 
+              ")"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"BesselI", "[", 
+                   RowBox[{"0", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                  RowBox[{"BesselI", "[", 
+                   RowBox[{"2", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+                RowBox[{"BesselK", "[", 
+                 RowBox[{"1", ",", 
+                  RowBox[{"2", " ", "\[Epsilon]", " ", 
+                   SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+               RowBox[{
+                RowBox[{"BesselI", "[", 
+                 RowBox[{"1", ",", 
+                  RowBox[{"2", " ", "\[Epsilon]", " ", 
+                   SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"BesselK", "[", 
+                   RowBox[{"0", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                  RowBox[{"BesselK", "[", 
+                   RowBox[{"2", ",", 
+                    RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], 
+            ")"}]}]}], ")"}], 
+        RowBox[{"3", "/", "2"}]]}], ")"}]}], ")"}]}], "+", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"6", " ", 
+          RowBox[{"BesselI", "[", 
+           RowBox[{"3", ",", 
+            RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+          RowBox[{"BesselK", "[", 
+           RowBox[{"3", ",", 
+            RowBox[{"2", " ", "\[Epsilon]", " ", 
+             SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], "/", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["\[Epsilon]", "2"], " ", "\[Rho]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"BesselI", "[", 
+                RowBox[{"2", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+               RowBox[{"BesselI", "[", 
+                RowBox[{"4", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"3", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+            RowBox[{
+             RowBox[{"BesselI", "[", 
+              RowBox[{"3", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"BesselK", "[", 
+                RowBox[{"2", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+               RowBox[{"BesselK", "[", 
+                RowBox[{"4", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], ")"}]}],
+        ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"6", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"BesselI", "[", 
+           RowBox[{"2", ",", 
+            RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+          RowBox[{"BesselI", "[", 
+           RowBox[{"4", ",", 
+            RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}], " ", 
+        RowBox[{"BesselK", "[", 
+         RowBox[{"3", ",", 
+          RowBox[{"2", " ", "\[Epsilon]", " ", 
+           SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"\[Epsilon]", " ", "\[Rho]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselI", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+             RowBox[{"BesselI", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+           RowBox[{"BesselK", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]", " ", 
+              SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+          RowBox[{
+           RowBox[{"BesselI", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]", " ", 
+              SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselK", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"6", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"BesselI", "[", 
+           RowBox[{"3", ",", 
+            RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "-", 
+          RowBox[{"\[Epsilon]", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselI", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+             RowBox[{"BesselI", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], ")"}], 
+        " ", 
+        RowBox[{"BesselK", "[", 
+         RowBox[{"3", ",", 
+          RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+        RowBox[{"BesselK", "[", 
+         RowBox[{"3", ",", 
+          RowBox[{"2", " ", "\[Epsilon]", " ", 
+           SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["\[Epsilon]", "2"], " ", "\[Rho]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"BesselK", "[", 
+           RowBox[{"3", ",", 
+            RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+          RowBox[{"\[Epsilon]", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselK", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], ")"}], 
+        " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselI", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+             RowBox[{"BesselI", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+           RowBox[{"BesselK", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]", " ", 
+              SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+          RowBox[{
+           RowBox[{"BesselI", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]", " ", 
+              SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselK", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"6", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"BesselI", "[", 
+           RowBox[{"1", ",", 
+            RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{"BesselI", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], "+", 
+          RowBox[{"BesselI", "[", 
+           RowBox[{"5", ",", 
+            RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}], " ", 
+        RowBox[{"BesselK", "[", 
+         RowBox[{"3", ",", 
+          RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+        RowBox[{"BesselK", "[", 
+         RowBox[{"3", ",", 
+          RowBox[{"2", " ", "\[Epsilon]", " ", 
+           SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"\[Rho]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"BesselK", "[", 
+           RowBox[{"3", ",", 
+            RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+          RowBox[{"\[Epsilon]", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselK", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], ")"}], 
+        " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselI", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+             RowBox[{"BesselI", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+           RowBox[{"BesselK", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]", " ", 
+              SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+          RowBox[{
+           RowBox[{"BesselI", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]", " ", 
+              SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselK", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], ")"}]}], "-", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"6", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"BesselI", "[", 
+           RowBox[{"3", ",", 
+            RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "-", 
+          RowBox[{"\[Epsilon]", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselI", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+             RowBox[{"BesselI", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], ")"}], 
+        " ", 
+        RowBox[{"BesselK", "[", 
+         RowBox[{"3", ",", 
+          RowBox[{"2", " ", "\[Epsilon]", " ", 
+           SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"BesselK", "[", 
+            RowBox[{"2", ",", 
+             RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], "-", 
+          RowBox[{"BesselK", "[", 
+           RowBox[{"4", ",", 
+            RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"\[Epsilon]", " ", "\[Rho]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"BesselK", "[", 
+           RowBox[{"3", ",", 
+            RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+          RowBox[{"\[Epsilon]", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselK", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], ")"}], 
+        " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselI", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+             RowBox[{"BesselI", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+           RowBox[{"BesselK", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]", " ", 
+              SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+          RowBox[{
+           RowBox[{"BesselI", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]", " ", 
+              SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselK", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"6", " ", 
+        RowBox[{"BesselI", "[", 
+         RowBox[{"3", ",", 
+          RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"BesselK", "[", 
+            RowBox[{"2", ",", 
+             RowBox[{"2", " ", "\[Epsilon]", " ", 
+              SqrtBox["\[Rho]"]}]}], "]"}]}], "-", 
+          RowBox[{"BesselK", "[", 
+           RowBox[{"4", ",", 
+            RowBox[{"2", " ", "\[Epsilon]", " ", 
+             SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"\[Epsilon]", " ", 
+        SqrtBox["\[Rho]"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselI", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+             RowBox[{"BesselI", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+           RowBox[{"BesselK", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]", " ", 
+              SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+          RowBox[{
+           RowBox[{"BesselI", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]", " ", 
+              SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselK", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], ")"}]}], "-", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"6", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"BesselI", "[", 
+           RowBox[{"3", ",", 
+            RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "-", 
+          RowBox[{"\[Epsilon]", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselI", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+             RowBox[{"BesselI", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], ")"}], 
+        " ", 
+        RowBox[{"BesselK", "[", 
+         RowBox[{"3", ",", 
+          RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"BesselK", "[", 
+            RowBox[{"2", ",", 
+             RowBox[{"2", " ", "\[Epsilon]", " ", 
+              SqrtBox["\[Rho]"]}]}], "]"}]}], "-", 
+          RowBox[{"BesselK", "[", 
+           RowBox[{"4", ",", 
+            RowBox[{"2", " ", "\[Epsilon]", " ", 
+             SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"\[Epsilon]", " ", 
+        SqrtBox["\[Rho]"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"BesselK", "[", 
+           RowBox[{"3", ",", 
+            RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+          RowBox[{"\[Epsilon]", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselK", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], ")"}], 
+        " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselI", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+             RowBox[{"BesselI", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+           RowBox[{"BesselK", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]", " ", 
+              SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+          RowBox[{
+           RowBox[{"BesselI", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]", " ", 
+              SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselK", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"6", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"BesselI", "[", 
+           RowBox[{"3", ",", 
+            RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "-", 
+          RowBox[{"\[Epsilon]", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselI", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+             RowBox[{"BesselI", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], ")"}], 
+        " ", 
+        RowBox[{"BesselK", "[", 
+         RowBox[{"3", ",", 
+          RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+        RowBox[{"BesselK", "[", 
+         RowBox[{"3", ",", 
+          RowBox[{"2", " ", "\[Epsilon]", " ", 
+           SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"BesselK", "[", 
+            RowBox[{"1", ",", 
+             RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], "-", 
+          RowBox[{"2", " ", 
+           RowBox[{"BesselK", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], "-", 
+          RowBox[{"BesselK", "[", 
+           RowBox[{"5", ",", 
+            RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"\[Rho]", " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"BesselK", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+           RowBox[{"\[Epsilon]", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"BesselK", "[", 
+               RowBox[{"2", ",", 
+                RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+              RowBox[{"BesselK", "[", 
+               RowBox[{"4", ",", 
+                RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], ")"}],
+          "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselI", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+             RowBox[{"BesselI", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+           RowBox[{"BesselK", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]", " ", 
+              SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+          RowBox[{
+           RowBox[{"BesselI", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]", " ", 
+              SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselK", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], ")"}]}], "-", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"6", " ", 
+        RowBox[{"BesselI", "[", 
+         RowBox[{"3", ",", 
+          RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+        RowBox[{"BesselK", "[", 
+         RowBox[{"3", ",", 
+          RowBox[{"2", " ", "\[Epsilon]", " ", 
+           SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              SqrtBox["\[Rho]"], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"BesselI", "[", 
+                 RowBox[{"1", ",", 
+                  RowBox[{"2", " ", "\[Epsilon]", " ", 
+                   SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                RowBox[{"BesselI", "[", 
+                 RowBox[{"3", ",", 
+                  RowBox[{"2", " ", "\[Epsilon]", " ", 
+                   SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}], "+", 
+             RowBox[{
+              SqrtBox["\[Rho]"], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"BesselI", "[", 
+                 RowBox[{"3", ",", 
+                  RowBox[{"2", " ", "\[Epsilon]", " ", 
+                   SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                RowBox[{"BesselI", "[", 
+                 RowBox[{"5", ",", 
+                  RowBox[{"2", " ", "\[Epsilon]", " ", 
+                   SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}], " ", 
+           RowBox[{"BesselK", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]", " ", 
+              SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+          RowBox[{
+           SqrtBox["\[Rho]"], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselI", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+             RowBox[{"BesselI", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", 
+              RowBox[{"BesselK", "[", 
+               RowBox[{"2", ",", 
+                RowBox[{"2", " ", "\[Epsilon]", " ", 
+                 SqrtBox["\[Rho]"]}]}], "]"}]}], "-", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}], "+", 
+          RowBox[{
+           SqrtBox["\[Rho]"], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselI", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+             RowBox[{"BesselI", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselK", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}], "+", 
+          RowBox[{
+           RowBox[{"BesselI", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]", " ", 
+              SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              SqrtBox["\[Rho]"], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"1", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], "-", 
+                RowBox[{"BesselK", "[", 
+                 RowBox[{"3", ",", 
+                  RowBox[{"2", " ", "\[Epsilon]", " ", 
+                   SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}], "+", 
+             RowBox[{
+              SqrtBox["\[Rho]"], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"3", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], "-", 
+                RowBox[{"BesselK", "[", 
+                 RowBox[{"5", ",", 
+                  RowBox[{"2", " ", "\[Epsilon]", " ", 
+                   SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}]}], 
+         ")"}]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"\[Epsilon]", " ", "\[Rho]", " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"BesselI", "[", 
+               RowBox[{"2", ",", 
+                RowBox[{"2", " ", "\[Epsilon]", " ", 
+                 SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+              RowBox[{"BesselI", "[", 
+               RowBox[{"4", ",", 
+                RowBox[{"2", " ", "\[Epsilon]", " ", 
+                 SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+            RowBox[{"BesselK", "[", 
+             RowBox[{"3", ",", 
+              RowBox[{"2", " ", "\[Epsilon]", " ", 
+               SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+           RowBox[{
+            RowBox[{"BesselI", "[", 
+             RowBox[{"3", ",", 
+              RowBox[{"2", " ", "\[Epsilon]", " ", 
+               SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"BesselK", "[", 
+               RowBox[{"2", ",", 
+                RowBox[{"2", " ", "\[Epsilon]", " ", 
+                 SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+              RowBox[{"BesselK", "[", 
+               RowBox[{"4", ",", 
+                RowBox[{"2", " ", "\[Epsilon]", " ", 
+                 SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}], "2"]}], 
+       ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"6", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"BesselI", "[", 
+           RowBox[{"3", ",", 
+            RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "-", 
+          RowBox[{"\[Epsilon]", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselI", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+             RowBox[{"BesselI", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], ")"}], 
+        " ", 
+        RowBox[{"BesselK", "[", 
+         RowBox[{"3", ",", 
+          RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+        RowBox[{"BesselK", "[", 
+         RowBox[{"3", ",", 
+          RowBox[{"2", " ", "\[Epsilon]", " ", 
+           SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              SqrtBox["\[Rho]"], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"BesselI", "[", 
+                 RowBox[{"1", ",", 
+                  RowBox[{"2", " ", "\[Epsilon]", " ", 
+                   SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                RowBox[{"BesselI", "[", 
+                 RowBox[{"3", ",", 
+                  RowBox[{"2", " ", "\[Epsilon]", " ", 
+                   SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}], "+", 
+             RowBox[{
+              SqrtBox["\[Rho]"], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"BesselI", "[", 
+                 RowBox[{"3", ",", 
+                  RowBox[{"2", " ", "\[Epsilon]", " ", 
+                   SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+                RowBox[{"BesselI", "[", 
+                 RowBox[{"5", ",", 
+                  RowBox[{"2", " ", "\[Epsilon]", " ", 
+                   SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}], " ", 
+           RowBox[{"BesselK", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]", " ", 
+              SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+          RowBox[{
+           SqrtBox["\[Rho]"], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselI", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+             RowBox[{"BesselI", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", 
+              RowBox[{"BesselK", "[", 
+               RowBox[{"2", ",", 
+                RowBox[{"2", " ", "\[Epsilon]", " ", 
+                 SqrtBox["\[Rho]"]}]}], "]"}]}], "-", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}], "+", 
+          RowBox[{
+           SqrtBox["\[Rho]"], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselI", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+             RowBox[{"BesselI", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselK", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}], "+", 
+          RowBox[{
+           RowBox[{"BesselI", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"2", " ", "\[Epsilon]", " ", 
+              SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              SqrtBox["\[Rho]"], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"1", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], "-", 
+                RowBox[{"BesselK", "[", 
+                 RowBox[{"3", ",", 
+                  RowBox[{"2", " ", "\[Epsilon]", " ", 
+                   SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}], "+", 
+             RowBox[{
+              SqrtBox["\[Rho]"], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", 
+                 RowBox[{"BesselK", "[", 
+                  RowBox[{"3", ",", 
+                   RowBox[{"2", " ", "\[Epsilon]", " ", 
+                    SqrtBox["\[Rho]"]}]}], "]"}]}], "-", 
+                RowBox[{"BesselK", "[", 
+                 RowBox[{"5", ",", 
+                  RowBox[{"2", " ", "\[Epsilon]", " ", 
+                   SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}]}], 
+         ")"}]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"\[Epsilon]", " ", "\[Rho]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"BesselK", "[", 
+           RowBox[{"3", ",", 
+            RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+          RowBox[{"\[Epsilon]", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"BesselK", "[", 
+              RowBox[{"2", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"4", ",", 
+               RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], ")"}], 
+        " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"BesselI", "[", 
+               RowBox[{"2", ",", 
+                RowBox[{"2", " ", "\[Epsilon]", " ", 
+                 SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+              RowBox[{"BesselI", "[", 
+               RowBox[{"4", ",", 
+                RowBox[{"2", " ", "\[Epsilon]", " ", 
+                 SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+            RowBox[{"BesselK", "[", 
+             RowBox[{"3", ",", 
+              RowBox[{"2", " ", "\[Epsilon]", " ", 
+               SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+           RowBox[{
+            RowBox[{"BesselI", "[", 
+             RowBox[{"3", ",", 
+              RowBox[{"2", " ", "\[Epsilon]", " ", 
+               SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"BesselK", "[", 
+               RowBox[{"2", ",", 
+                RowBox[{"2", " ", "\[Epsilon]", " ", 
+                 SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+              RowBox[{"BesselK", "[", 
+               RowBox[{"4", ",", 
+                RowBox[{"2", " ", "\[Epsilon]", " ", 
+                 SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}], "2"]}], 
+       ")"}]}]}], ")"}], "/", 
+   RowBox[{"(", 
+    RowBox[{"\[Sqrt]", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"2", " ", 
+          RowBox[{"BesselI", "[", 
+           RowBox[{"1", ",", 
+            RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+          RowBox[{"BesselK", "[", 
+           RowBox[{"1", ",", 
+            RowBox[{"2", " ", "\[Epsilon]", " ", 
+             SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], "/", 
+        RowBox[{"(", 
+         RowBox[{"\[Epsilon]", " ", "\[Rho]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"BesselI", "[", 
+                RowBox[{"0", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+               RowBox[{"BesselI", "[", 
+                RowBox[{"2", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"1", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+            RowBox[{
+             RowBox[{"BesselI", "[", 
+              RowBox[{"1", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"BesselK", "[", 
+                RowBox[{"0", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+               RowBox[{"BesselK", "[", 
+                RowBox[{"2", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], ")"}]}],
+        "-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"2", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"BesselI", "[", 
+             RowBox[{"1", ",", 
+              RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "-", 
+            RowBox[{"\[Epsilon]", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"BesselI", "[", 
+                RowBox[{"0", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+               RowBox[{"BesselI", "[", 
+                RowBox[{"2", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], 
+           ")"}], " ", 
+          RowBox[{"BesselK", "[", 
+           RowBox[{"1", ",", 
+            RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], " ", 
+          RowBox[{"BesselK", "[", 
+           RowBox[{"1", ",", 
+            RowBox[{"2", " ", "\[Epsilon]", " ", 
+             SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], "/", 
+        RowBox[{"(", 
+         RowBox[{"\[Epsilon]", " ", "\[Rho]", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"BesselK", "[", 
+             RowBox[{"1", ",", 
+              RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+            RowBox[{"\[Epsilon]", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"BesselK", "[", 
+                RowBox[{"0", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}], "+", 
+               RowBox[{"BesselK", "[", 
+                RowBox[{"2", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]"}]}], "]"}]}], ")"}]}]}], 
+           ")"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"BesselI", "[", 
+                RowBox[{"0", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+               RowBox[{"BesselI", "[", 
+                RowBox[{"2", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}], " ", 
+             RowBox[{"BesselK", "[", 
+              RowBox[{"1", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}]}], "+", 
+            RowBox[{
+             RowBox[{"BesselI", "[", 
+              RowBox[{"1", ",", 
+               RowBox[{"2", " ", "\[Epsilon]", " ", 
+                SqrtBox["\[Rho]"]}]}], "]"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"BesselK", "[", 
+                RowBox[{"0", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}], "+", 
+               RowBox[{"BesselK", "[", 
+                RowBox[{"2", ",", 
+                 RowBox[{"2", " ", "\[Epsilon]", " ", 
+                  SqrtBox["\[Rho]"]}]}], "]"}]}], ")"}]}]}], ")"}]}], 
+         ")"}]}]}], ")"}]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{{3.990530833816883*^9, 3.990530846682207*^9}, {
+   3.9905308771808853`*^9, 3.9905308855342407`*^9}, 3.9905309460305367`*^9, 
+   3.9905314143166504`*^9, 3.990544726195101*^9},
+ CellLabel->"Out[32]=",ExpressionUUID->"7d1b99a6-8d0d-2b40-9932-79705ec882a6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"Dsnr", "[", "\[Epsilon]", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Epsilon]", ",", "0", ",", "5"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.99052725829401*^9, 3.990527259637169*^9}, {
+  3.9905273189173527`*^9, 3.990527346754364*^9}, {3.990527836219593*^9, 
+  3.9905278574095974`*^9}},
+ CellLabel->"In[19]:=",ExpressionUUID->"fc80f43b-cbf0-d847-858d-380171f92a1a"],
+
+Cell[BoxData[
+ GraphicsBox[
+  InterpretationBox[{
+    TagBox[{{{}, {}, 
+       TagBox[
+        {RGBColor[0.24, 0.6, 0.8], AbsoluteThickness[2], Opacity[1.], 
+         LineBox[CompressedData["
+1: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
+          "]]},
+        Annotation[#, "Charting`Private`Tag#1"]& ]}, {}},
+     {"WolframDynamicHighlight", <|
+      "Label" -> {"XYLabel"}, "Ball" -> {"InterpolatedBall"}|>}], 
+    StyleBox[
+     DynamicBox[(Charting`HighlightActionBox["DynamicHighlight", {}, 
+       Slot["HighlightElements"], 
+       Slot["LayoutOptions"], 
+       Slot["Meta"], 
+       Charting`HighlightActionFunction["DynamicHighlight", {{{{}, {}, 
+           Annotation[{
+             Directive[
+              Opacity[1.], 
+              RGBColor[0.24, 0.6, 0.8], 
+              AbsoluteThickness[2]], 
+             Line[CompressedData["
+1:eJwV1nk8FP8fB3CKyi1bUoQkJMpVCvWeCCVUrhARclR8qUgRHSoqOSJCrlQq
+91WLfNbu7CZXrqJIidy3tYejfvP7ax7Px7w/M5/deb9fM1vc/rM6u4KHhyeQ
+l4fn/8dnYW6rND1CDjQIWdEabn48gLfLm5+UdwCpK33iwz8fwj9GzW15eR/g
+t1VOVKYkg2h8RZFg10UwL5LwWE3NhGeUaDl++avA3HIoXTonB9SmPB798woH
+/UCbrXXKufBDNP3vUuctmBqMbvvs+hYu7A/0ZctFgdgdtTRqXBGUdvzKYRo9
+hNVbT9Sj3mJYOG/eM+MVA9cn4z3bNpTCoaa4bazOeOh61yF5w64chpNNa5k+
+CZC/Y7z+lEsFPPRYdppbTIS74zvGOY7voH3RO2Fa7inUXOK5mLqTDEEfZTWm
+ilOAceZcr/OaStj0uKNhwigN4naT+726KsFNFVs55pUBF/7dlW9wroYVi9c+
+M0Mz4fej3z266z5Axy/bzUzjLFDLPjuygfYBgvOEyLOd2dA+v/VnuxACs/jB
+VbOZz+GSxKtd514ikAmutZnxyYGZBUXPwM0UoBhdmZ5afAEa+jkkn9cUWN39
+W3lC7jWweMMmE7JroYvyIXB8+DWMbpaelOquhTcvk2ljxW8g+FDE5utrqWB5
+0dJl1CgPak4O/dgXTAV5++35I8L58PDU9f3kXCrM7udbHP6SD1r6J9I9O6nw
+RKDyyZBXIXQMCf4XvYsGZVfMLl6SKoL/yiLfbnOgQdqo7sa50CIQfHU6Z/tN
+Gvi1SHjNGhdDyb0mzutGGkik1a2Y6SwBeev8dT+scFgUrXjtb1AKGVGj7tsD
+cBi4+fz4dGYpfLxg8djgEQ4VXmHpUz5l0PjkzZduHIeM7+eN/2suA4MBQdLV
+XhwiLRzGJ7XK4YP2XOw/Fg6O2jp6k4vlMCg60z2oSAejl1v6fF0roBK+qNnp
+0UFto1jkBF4BbbfPNzdY0uHv35Ev49HvoLfQW3DgMh2GAjpDL8y+g4fqHKHH
+d+nQMoBvHbd7D6Qji1pnkuiQVZ8RMCZHBstridYBFXRgJper/nxIhh76o7hh
+Oh1MvBr627hksDkQoxnQQYenu/vSGJ6VUKPi5bP2Nx3GV7JtK9srYYSnXOfz
+JB2gTVisAKuC+1VtJ4sW6BCfqVCXlV8FXJ/HbpX8DNi731Iv6l417D82HHR6
+IwMeCHnMhTKr4bvL18IVCgzo/XY1z//MBzAcDNMe2M4AzdyYsx7NH+B96NOC
+1ZoMiAh6IWuvXwNv05NeBugyoPNQVefR3BrQWzoXorSfAaqk1lhYjyDyp6aP
+qiEDrvcNHtG+hSAmsCHqpgkDWgqXVihPIfh63/brLjMGSIDAaZGdFBBwSlTZ
+Z8EAfaUEvXseFHjxwdwg6xgDPETkNvCmUkCD73rR+RMMeMR8PXetlQIy1clr
+0qwY8L5bp4W5uhbue7/I323NgD4qyvM7UAu9WpZT+oQF35hFDV+uBY2oYb4S
+ol4n7stZt7e1oHP3vGgqcb3Twa6GPX21QGE6rl8g7nfPZUzWTooKQdkvRdqI
+/RSZBC1+tqTCRkbY121HGfBdnbfryB0qSIrI6nNMGbBy/cMyWhUVKAtRc0cP
+MUBtSTJu/ywV7DaYvdiKMcCuP8v3nQoNsu9KDtzUZ0B4vZqZpgsNzILDtHz2
+MCC3+J3S20QaXB28u6JHgwFtyYYrtxF97UEyrOhRZYCil3211D4cIq6R+eI2
+M8DSsj85/j8c5I+2SR2RZMCV3X6Bwi9x0DBw4EsWZUD9yoidPCQ6zBwWrVnx
+l+inUVGha0foEBcQl6IwT4fNbU+H5sKJvtvDf6FvjA7+mYWZQ+N0aNTSuWfU
+RQfJ/d0SnxkMQM33LzTm0QFT9Jw6vMyAuE4ViQ1ZdPARmmmgan+EBGffJtFE
+OlR/W3WnIvMjHDq584dQKB3cgrTYz67VQddniylPEzoUFEZ1X9hZDyrPZf50
+N+EwKjH60OxMPQiVGVRV1uCgHGR2QCWhHvABNyuPQhwyDYSy+rn10MFed1M6
+Fof4Tw89HekNkBeqraR9DIeg/pgZU6cm+HtHZw8dp0GGUMPttcYt0FbkHlIa
+T4UD+0OcbpxuAUwqPD0ojAo9fjt2T11pAc7ewL/S56gg1fZgsPFNCyh2jheL
+HaRCXLL5kUjxVtBUaJV7M1ELt7c1i/7rbgWV8KXHsoa14AWtT8cvtoOqaPf3
+mAoEPNmsyu4H7VD9cr3epSgEyXwyPfU57TC6z+3iPicEdZ88ZV9/bQcJSUPV
+AF4EKjZL2Wf1OmDA/oV7plkNDHsr5/XyfoE9FqzCh13VcC7+ek1L7FdYZ/Q1
+pGiQDH5/tveXFXwDmyzJ1KdDpSC4JUL5595f8GuVBas9Og0eiTeoZrn2ww01
+mTf+T6MRWXdzuaUfYSbjVRnnERo4/R8shfQDds79/YMdsUg/n2RzMqkfYhNi
+nqZGxqHhI07XRZr7oej7Nzfv/QnI6PbE56v6A0Bx1RC4EfcUcebFAq0k/4D4
+AfHXcjNZyK3bBq1sHIS9mMJ+p5i3SDC1zzfg2yBgTtvNNnW+RSWOfjI/BwfB
+taDwWLpsHlr5/d7VSt4hwJKSTDl5eSinq1I7QHcIkteNSDIZ+Wjwi3xub/YQ
+rDnK/SAyXYjOtYzHkq8Og7Av/eoVoRIUQI9w+095FH7FtpIYPeVIdsBkFUt7
+FJIVosMfs8tRwwqBN6HYKBis21V3WKICbcOiZ6IcRkHxsJHIedMK9K0y8UbO
+g1Ew94c9MUUV6GDRy/RvU6Pg/zOjwinsHVqbWvfd6P0YJMh2ahuvIaMa8v2w
+enwMvIP6IjbLk9H5LnOFE61j4OphSu7VJSP6+laf06NjcKH25rS0Fxldjf3G
+CZYZh8YH757ewsmo786oZMGNcTh05t5KgZBKVOwvbC11ZALqKtte7++sQo0p
+pKv5dhOgUfB1UGCyCg3imzIMPSbgwu4XHtV81WjTxu1jF8InYO/Iol2HZjWK
+qDW+XVs+AcLz2+613q9GdhLhpecUJiFUcdt74b0f0ELpDOnD4iSUzaZK/wmv
+Qet6OfusBKZARkLd//HjGrRzDY/rkOQU5EwMvtv+qga5O4nmrdWagmnlVnvR
+5hrUyLfjkKf3FFyYPOdD3oRQuq3HZbEvUyBePLfpeSFCWSHnRzVOToPjGl2x
+dR4UpEER4NxznoaSF7wfRs5TEIUvl/+n+zTwBD4oL79EQb+iB+Sj/afBKn9P
+usZtCpLNdD45EjUNL0MCZ0qyKCgFP4ZnVU+DXmZh9WQPBcWL6KRLKMyAU8yv
+lvPmtUjBqu2tj8oM8FBpKpLWtaj4iT+ZsnMG3lMs775zqEUtcvkdfvozYB/4
+0uenZy0S1VISarCZAZsVhpfxG7Xovp1U8O17M1BgsqJguKQW3cpYOsEcnwHq
+hyB1qjgVHdd4H7BjbgYGXYY9DCSpSLb2UpwbdwayLebyCqSpqPL3aEsL/yx4
+nzwREaJERbPbvh3Ll52FC7rHBiv0qcgtr9zC8/gsqIgoKpI9qOgg2e9IV+ks
+BA2avhAvpiJRM1UfscpZwIKHDiSVU1HP9z+RJpRZYGp5xEtWUlHwklNdWeMs
+GFq/C/lHpaIiOGoa92cWBE3Lh691UJE8Q9nYbMMcXN42ly/DoiKe9l9Y9bU5
++Lui8ckuHRqKGKnJunZzDnTSeJ4o7aUhAZ5nK/ZFEvUxa+jrDWhIQt0BL0+c
+g+HPww09RjREdI1pYdEcpFjlqYta05CZPtUye3AOlOy31Kz0p6HmE5mFrhNz
+sMlxIO/GJRqy9g4Tl2MS6+VidrGCaMgpUa8tlZcJ2Tv2CzRcpyG/qRLbRBkm
+lJygkGUe0NDj58+dIq2YMNzR5342h4akKm9+MHFgAmvntK/fKxpKa3GR5Xdl
+gozIel//NzT0cln6101fJmDud9xcimjo/ckE95BIJjz6+KBlpIqGeoTunPOr
+YYI46XZ/eSsNKV32DLZRnYdZFJ9ozaEhdb2f1hka8xCackj+zAIN6fDY7xrd
+Mw8VfpqqPks0ZPjwyGC40Two5vQ1efPg6HSOms1bp3mYnpdpV1qDoycds7tW
+xMzD5U0ytVmSOHqWcl7IInEewh6PODpI4SjHdWAwKXUemr/5VwltwlHJ+Jdn
+6rnzUNen+9t1M46a+chCDrXzkPt4AmvaiiP+3eFDhXPzcN9xp0jJLhwJL7Kp
+C9x5kPrYKy2liSOJWv90Yx4WzFad2nNVC0fyFm623cIssBt6k6G2G0cGZ41p
+q5RYUIE/J9vr4choR036CTUWNHKb05L0cWQ2s+damhYLPL955rca4Mj+uoqm
+FhDnb4R56QKOLicKZTjbsyCiU6v0kxGOQk5FXMs9zYLkT+TA34dwdGvLsu2c
+BwtMZErusoxxFJs/KRwVwAI1laM54odxlEdvvVZ2nwUdRMaLmOOo9IGZ3b9Y
+Fnw3bB7iscBR5QmaplkSC9I84v9OEa77UTb88zkLVFxKIinHcDQwn2Qn9IEF
+eAs3bIc1jrIPal/6QWNBqICgqbANjlyim2MK61kQpLytc4jwd0X+T9ZdxPq7
+N91j7HDUan1RP22OBQtb4H2mA44eZYjY+y2wQFBO1dzeEUfmY7mXMV42uJV2
+fBY8Rdz/1s/8AVE2eMjwVbo64aim2FxeXZUNhx9YZ7ecxlHo8pDBPw02VPB/
+N3B1wdG+I7cdWnXZIOrMOzlKuOwXOT7QmA0yTR6vZlxxdFHNttDUnE18V2iS
+fc/gaFfwdMNGa6L+Qi1zgPAbMWX+Glc2XPZTWsLdcOR9irol1osNPfcvtqq7
+42jbK+cDbn5s8P7o1x9HOPNAwpVVoWwQNzzYctSD6L/7uxK6brHh0a7LZVmE
+Zb7WF72JYoNCuvjwLOEkX95RyyRiv2+lj987iyMbctqqLelsKBNoiq4nLMG/
+d+tcDhv2ePuqC3jiqOV4O9DfsmEV6Ym2EeFHaX5OSSXEeZkfOcGEzYcFrvqQ
+ies5f7nzmrCAzotEfQobXl4V7f5CmBGOlYh8ZEN197rXy4QjGrqbfzax4VZl
+AFPeC0eGG66MFXew4cIG4qOY8D83iTUR3WxYoBitdyRcXZCvaPebDTVWVXP/
+Eb62cPigyggbHHUfnblJeK/JgPPCFBvCcne7PyI8Hxd+rZHFBuFi5eUnhEt+
+bEpKX2aDlnqndiph/+0Vpf58HJBsLBX6v3cGnmgxFOLAS3HVqP/Xj1HGx9dJ
+cIBj9bwomnCucKTAkBQHeGrv3L1B2NN+qxJZjgMpLjpi/9+PYk6N4QMlDngL
+ix1zIPx7ysHFWZ0DwmEXzf7/ezL150N26XCg2fg9/xbCzvdik3n1OfCkZc+d
+v8T/sal9R3n7QQ6Ieh9s6iTcJfux9cVhDoxqq/zOI/zknNvklWMc6NXbW3ed
+sE3FsqCZHQcq3KtumxGWWPFUWcaZAzJXOFIkwp8tdA5NunOgTk77YSfxPM3+
+nLseH8ABJ6vMzTaETa5vzTsUzIHkH0vPRAgbru/5zgrjgH3AhBaN6A89Y4u9
+px4S9Uz/NwqE9/zg9xJ5zAGT7qmERqLftAJrEtFTDgxWfX9+kbDqi11zW19x
+QHAi70Ap0a9K+4e3fM3nwCNXnzYLwgpfMo9HlnFgr6RByv/7exO/RMF4LQdC
+rQu/rCIsdJbpXd7DgRL5JS9ZYl7WLOclefUTzyc2f00qMV98iWcZG0c54P/3
+4BKJ8BL+dWsYm6jvPDS2QMzjuCK510SCC5ihr9UzYn6HqwNEuFJcqBTjZy4R
+8z1go2rwVo4LNsFPVzkQ7olIfSqmzoWWg7HRq+xx1Dhw3abLlAunS/ju69oS
+8x665/Z9Sy44lvRvCiHyA183VWxgywWevSp6VUTeVB9yFcty48LX025amlZE
+nuUY1vtc5wKT/54f0xJH0R6rscUSLkjfktLpNsXR/SXkl0/mQpj+J/sRExzd
+TQh+5kLhgsWR14eYRD6G4SMLtCYuGEQ1hvMQ+emn2Fj+cJgLrXa/+meJvLUc
+iN0hK7sA3mKFToa6xH53DHQ4KS5AM/XKca09ODp6STcsVXUBKM60F3JEvh9e
+0dsipbsAjYOJ4bNE/hvK7wgiHV8AqSfpeld34mi3E52y5tYClOe8khbZRuRD
+B9d27s8CtFXfjXMVx1GKtMU/zfEF2MKnR+EVw9FG98xc/9kF2LTZJztTBEeS
+syaLE38XIPH98v1OQRyJiydkDm9YBIEN0xqq/Dhaab5z7MeRRcj5FjfiwaWh
+UZrbjbr8RejcE3sd+0VDcnFd5x6VLYIp64vU1V4asjltaWtTtQi3BoZPFvbQ
+UA1nn+qvukX4HN7QuO4bDcWrr+1g9y9Ce4ztLxrxftZPQsrKm5bAKTJwczmV
+hh6ek/l85+4SrG3dOM3KpqGda79uNnJZBnKdXWWkMw0NRg/eSjy7DDKZxeB5
+ioaeCbKHhs4vgwTX29jQgYaE+aRKHgYvw8kG92/zNsR+WQ4mX+OWYbvm5ZNH
+zWnoRc8PPx98GRwV/U2K9WhIJvcPitn+FyKT/IMCJWlIEObP9Mz9hUHDV28P
+1FOR6YQjW8GWB+sbjeJV20BFXVQPXkc1XqzvMV+olmMtKo/ET8vP82JzKwXW
+NWVTkCd/4K/m5hXY19maifNFCLlfDCkXTlmJYdLOQ506NWiX145m8zN82Jqx
+2DwyrRp9llATCtzHj2mZxSTt16tCVQW3UtVWrsJsmz95SHeQUQiv6vHGH6uw
+LQ9UvSZPvUeCPdcO+5Wtxrb3/s3dx6lAf15uScgIXYPRuFncEHI5SlDZyEe2
+FcAUi67WZfiVodgUz49n5AWx1b2yyxOmpcgxwblZeEgQi8sVLTilU4I4h15w
+M2qEMP0bOfYKUsWo/49hMPWeMEYbOt2fIlOEsvdrSjedEcHqXfa2j+gUoPw7
+gWu91EWx3d7AZ+ybh+7Zuh9dOS+KMUP7Lt9gvEG7e7Je32sSwxbOnLtUvP41
+St6emt90VBwzLtvSMJH8CoVTopOPksUxpS7fWz7rXiILadsX9YprsdqV4fIa
+BTnooN/HU2uj1mLbGcOlFZeeowwZN8XG+bXY5IOIDEntbKRIe/XE8pQEZrVd
+K7F3YxaKVaeqttVIYL1SctkgmYk85/haP6mSMMUnLiU7pNORW/GsfFQMCWOY
+5Jl6H01DF25ZL5nFkTDp3x/F44zSUKB1WafwYxLmtVtwuUo/DUXOBz6KfULC
+OobaDaTU0lDBPu5i0jMSFsDQNRsVTkPc2n9fX74lYUvZYQrM5lQU2yYcjX8k
+YQoT2TypNqko5bmv991PJEwv6/OW1Rap6PnlZqPDDSSsXuinTaBxKqqQjF1o
+aCZhmZ8iJk/uSUU9jiTv9i8kLNFdoG+3VCpS7t9o9LufhL2FA+Y2PSlIo+ya
+bM4fEqa0cexoX0cK0rvTzT07RMJETq2w9W9KQebKz4pGRkmYY7vtzYSaFHTx
+vLzszAwJe17fqz2fmYJCDW5yS+ZIGNNBzT/+aQq6I/K74/I8CdNIKynWjE9B
+yYXPH3A4JGznf1aGQbdTUPYNPq/KBRLW9ss1Vjo0Bb09cdYwdImEbf0Y10e9
+nILKFBibD/wlYZxOl90XfFNQzZwS998/Yv0f4wcbPFPQ/wCJwRD0
+              "]]}, "Charting`Private`Tag#1"]}}, {}}, <|
+        "HighlightElements" -> <|
+          "Label" -> {"XYLabel"}, "Ball" -> {"InterpolatedBall"}|>, 
+         "LayoutOptions" -> <|
+          "PanelPlotLayout" -> <||>, 
+           "PlotRange" -> {{0, 5}, {-0.15941181212688488`, 
+             0.17441510376774877`}}, 
+           "Frame" -> {{False, False}, {False, False}}, 
+           "AxesOrigin" -> {0, 0}, "ImageSize" -> {360, 360/GoldenRatio}, 
+           "Axes" -> {True, True}, "LabelStyle" -> {}, "AspectRatio" -> 
+           GoldenRatio^(-1), "DefaultStyle" -> {
+             Directive[
+              Opacity[1.], 
+              RGBColor[0.24, 0.6, 0.8], 
+              AbsoluteThickness[2]]}, 
+           "HighlightLabelingFunctions" -> <|"CoordinatesToolOptions" -> ({
+               (Identity[#]& )[
+                Part[#, 1]], 
+               (Identity[#]& )[
+                Part[#, 2]]}& ), 
+             "ScalingFunctions" -> {{Identity, Identity}, {
+               Identity, Identity}}|>, "Primitives" -> {}, "GCFlag" -> 
+           False|>, 
+         "Meta" -> <|
+          "DefaultHighlight" -> {"Dynamic", None}, "Index" -> {}, "Function" -> 
+           Plot, "GroupHighlight" -> False|>|>]]& )[<|
+       "HighlightElements" -> <|
+         "Label" -> {"XYLabel"}, "Ball" -> {"InterpolatedBall"}|>, 
+        "LayoutOptions" -> <|
+         "PanelPlotLayout" -> <||>, 
+          "PlotRange" -> {{0, 5}, {-0.15941181212688488`, 
+            0.17441510376774877`}}, 
+          "Frame" -> {{False, False}, {False, False}}, "AxesOrigin" -> {0, 0},
+           "ImageSize" -> {360, 360/GoldenRatio}, "Axes" -> {True, True}, 
+          "LabelStyle" -> {}, "AspectRatio" -> GoldenRatio^(-1), 
+          "DefaultStyle" -> {
+            Directive[
+             Opacity[1.], 
+             RGBColor[0.24, 0.6, 0.8], 
+             AbsoluteThickness[2]]}, 
+          "HighlightLabelingFunctions" -> <|"CoordinatesToolOptions" -> ({
+              (Identity[#]& )[
+               Part[#, 1]], 
+              (Identity[#]& )[
+               Part[#, 2]]}& ), 
+            "ScalingFunctions" -> {{Identity, Identity}, {
+              Identity, Identity}}|>, "Primitives" -> {}, "GCFlag" -> False|>,
+         "Meta" -> <|
+         "DefaultHighlight" -> {"Dynamic", None}, "Index" -> {}, "Function" -> 
+          Plot, "GroupHighlight" -> False|>|>],
+      ImageSizeCache->{{4.503599627370496*^15, -4.503599627370496*^15}, {
+       4.503599627370496*^15, -4.503599627370496*^15}}],
+     Selectable->False]},
+   Annotation[{{{{}, {}, 
+       Annotation[{
+         Directive[
+          Opacity[1.], 
+          RGBColor[0.24, 0.6, 0.8], 
+          AbsoluteThickness[2]], 
+         Line[CompressedData["
+1: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
+          "]]}, "Charting`Private`Tag#1"]}}, {}}, <|
+    "HighlightElements" -> <|
+      "Label" -> {"XYLabel"}, "Ball" -> {"InterpolatedBall"}|>, 
+     "LayoutOptions" -> <|
+      "PanelPlotLayout" -> <||>, 
+       "PlotRange" -> {{0, 5}, {-0.15941181212688488`, 0.17441510376774877`}},
+        "Frame" -> {{False, False}, {False, False}}, "AxesOrigin" -> {0, 0}, 
+       "ImageSize" -> {360, 360/GoldenRatio}, "Axes" -> {True, True}, 
+       "LabelStyle" -> {}, "AspectRatio" -> GoldenRatio^(-1), "DefaultStyle" -> {
+         Directive[
+          Opacity[1.], 
+          RGBColor[0.24, 0.6, 0.8], 
+          AbsoluteThickness[2]]}, 
+       "HighlightLabelingFunctions" -> <|"CoordinatesToolOptions" -> ({
+           (Identity[#]& )[
+            Part[#, 1]], 
+           (Identity[#]& )[
+            Part[#, 2]]}& ), 
+         "ScalingFunctions" -> {{Identity, Identity}, {Identity, Identity}}|>,
+        "Primitives" -> {}, "GCFlag" -> False|>, 
+     "Meta" -> <|
+      "DefaultHighlight" -> {"Dynamic", None}, "Index" -> {}, "Function" -> 
+       Plot, "GroupHighlight" -> False|>|>, "DynamicHighlight"]],
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0},
+  DefaultBaseStyle->{"PlotGraphics", "Graphics"},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "ScalingFunctions" -> None, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotInteractivity:>True,
+  PlotRange->{{0, 5}, {-0.15941181212688488`, 0.17441510376774877`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.990527800871258*^9, {3.9905278383246937`*^9, 3.9905278585635624`*^9}, 
+   3.990528308372278*^9, 3.990530891995863*^9, 3.99053095391029*^9, 
+   3.9905314205812187`*^9},
+ CellLabel->"Out[19]=",ExpressionUUID->"027d282f-2aaf-3944-a1cc-57faa4ce1be5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindRoot", "[", 
+  RowBox[{
+   RowBox[{"Dsnr", "[", "\[Epsilon]", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Epsilon]", ",", "0.5"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9905283585842705`*^9, 3.990528384996765*^9}, {
+  3.990530732201456*^9, 3.9905307333150406`*^9}},
+ CellLabel->"In[20]:=",ExpressionUUID->"22d4143e-f084-8f44-b363-6e3b634c41ff"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\[Epsilon]", "\[Rule]", "0.5704736962168163`"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.9905283859434566`*^9, {3.9905307285084515`*^9, 3.9905307346047688`*^9}, 
+   3.9905308954275513`*^9, 3.9905309573221035`*^9, 3.99053142550399*^9},
+ CellLabel->"Out[20]=",ExpressionUUID->"f5306a9b-4298-a44b-8889-45fbe73bdec5"]
+}, Open  ]]
+},
+WindowSize->{1152, 579.6},
+WindowMargins->{{
+  Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
+Magnification:>1.4 Inherited,
+FrontEndVersion->"14.3 for Microsoft Windows (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"e68c3fd5-061e-4642-83b2-5385f3c6d7d9"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 481, 7, 92, "Input",ExpressionUUID->"954e650b-e199-1f40-934f-5e4e3fca3565"],
+Cell[1060, 31, 302, 5, 45, "Output",ExpressionUUID->"4a190535-d0b7-fa4f-9784-caec1812cfbd"]
+}, Open  ]],
+Cell[1377, 39, 1365, 32, 119, "Input",ExpressionUUID->"816c78ef-6d05-de42-a8d8-83ba049e9297"],
+Cell[CellGroupData[{
+Cell[2767, 75, 341, 7, 39, "Input",ExpressionUUID->"99f9b548-979b-884b-a925-005d55c4d281"],
+Cell[3111, 84, 296, 7, 45, "Output",ExpressionUUID->"e53a9ba5-a1c2-454c-9f61-3607e89d811f"]
+}, Open  ]],
+Cell[3422, 94, 4283, 122, 236, "Input",ExpressionUUID->"3ac3a6af-84ff-8141-bcf1-cfa37ccc06e6"],
+Cell[7708, 218, 428, 8, 39, "Input",ExpressionUUID->"12ddb8ff-ada4-3247-869c-922bb3f08f65"],
+Cell[8139, 228, 1396, 34, 64, "Input",ExpressionUUID->"7b130e47-bc4f-004e-be9b-4f03bcbc0747"],
+Cell[CellGroupData[{
+Cell[9560, 266, 260, 5, 39, "Input",ExpressionUUID->"4d049faf-f52c-cc4b-a4e8-58245decd0ae"],
+Cell[9823, 273, 224, 4, 45, "Output",ExpressionUUID->"6f6adf42-a9d1-4444-9040-b21e44d3e94d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10084, 282, 398, 9, 39, "Input",ExpressionUUID->"1235ca0e-071f-744e-b94c-c7cf1a47e36a"],
+Cell[10485, 293, 85127, 2146, 3643, "Output",ExpressionUUID->"7d1b99a6-8d0d-2b40-9932-79705ec882a6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[95649, 2444, 435, 9, 39, "Input",ExpressionUUID->"fc80f43b-cbf0-d847-858d-380171f92a1a"],
+Cell[96087, 2455, 29588, 532, 317, "Output",ExpressionUUID->"027d282f-2aaf-3944-a1cc-57faa4ce1be5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[125712, 2992, 383, 8, 39, "Input",ExpressionUUID->"22d4143e-f084-8f44-b363-6e3b634c41ff"],
+Cell[126098, 3002, 355, 6, 45, "Output",ExpressionUUID->"f5306a9b-4298-a44b-8889-45fbe73bdec5"]
+}, Open  ]]
+}
+]
+*)
+

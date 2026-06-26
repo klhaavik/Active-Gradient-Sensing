@@ -1,0 +1,81 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      2219,         73]
+NotebookOptionsPosition[      1582,         53]
+NotebookOutlinePosition[      2047,         71]
+CellTagsIndexPosition[      2004,         68]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"f", ":=", 
+  RowBox[{"BesselK", "[", 
+   RowBox[{"n", ",", 
+    RowBox[{"2", "z"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9902830202904377`*^9, 3.9902830445402184`*^9}, 
+   3.990283392245636*^9},
+ CellLabel->"In[3]:=",ExpressionUUID->"bc2f98fa-f3ce-1b40-b83b-fd8d009ace83"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"D", "[", 
+  RowBox[{"f", ",", " ", "z"}], "]"}]], "Input",
+ CellChangeTimes->{{3.9902830486995583`*^9, 3.990283059557934*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"a4cf96b5-5905-f84d-ad97-78c2648532c6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   RowBox[{"BesselK", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "1"}], "+", "n"}], ",", 
+     RowBox[{"2", " ", "z"}]}], "]"}]}], "-", 
+  RowBox[{"BesselK", "[", 
+   RowBox[{
+    RowBox[{"1", "+", "n"}], ",", 
+    RowBox[{"2", " ", "z"}]}], "]"}]}]], "Output",
+ CellChangeTimes->{3.9902830605532875`*^9, 3.990283395119751*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"4e850975-9a73-8845-a7c4-ea77940fde3c"]
+}, Open  ]]
+},
+WindowSize->{1152, 579.6},
+WindowMargins->{{
+  Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
+Magnification:>2.3 Inherited,
+FrontEndVersion->"14.3 for Microsoft Windows (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"fa26316a-29b1-a644-8639-9b6e519faa53"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 302, 7, 64, "Input",ExpressionUUID->"bc2f98fa-f3ce-1b40-b83b-fd8d009ace83"],
+Cell[CellGroupData[{
+Cell[881, 31, 228, 4, 64, "Input",ExpressionUUID->"a4cf96b5-5905-f84d-ad97-78c2648532c6"],
+Cell[1112, 37, 454, 13, 74, "Output",ExpressionUUID->"4e850975-9a73-8845-a7c4-ea77940fde3c"]
+}, Open  ]]
+}
+]
+*)
+
