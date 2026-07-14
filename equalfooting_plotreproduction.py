@@ -543,9 +543,10 @@ def plot_metric_heatmap (metric_name="output", metric_fnc=output, beta_max=5, ep
         max_val = val
       row = np.append(row, val)
     vals.append(row)
+    print(f"So far: Max {metric_name} = {max_val}, reached at epsilon = {max_eps}, beta = {max_beta}")
 
 
-  print(f"Max {metric_name} = ({max_val}), reached at epsilon = {max_eps}, beta = {max_beta}")
+  print(f"Final: Max {metric_name} = {max_val}, reached at epsilon = {max_eps}, beta = {max_beta}")
   img = ax.imshow(np.asarray(vals), extent=[0, beta_max, 0, eps_max], cmap="YlOrBr", origin='lower')
   if show_max:
     ax.plot(max_beta, max_eps, 'x')
@@ -836,7 +837,7 @@ def plot_vs_isolated_params(metric_name="output", metric_fnc=output, enabled_par
 if __name__ == "__main__":
   num_vals = 20
   kappa_vals = np.logspace(-3, 1, num_vals)
-  interval = num_vals / 4
+  interval = num_vals // 4
   for i in range(0, num_vals, interval):
     print(i, i+interval)
     print(kappa_vals[i], kappa_vals[i+interval])
