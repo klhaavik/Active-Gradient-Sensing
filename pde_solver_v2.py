@@ -89,6 +89,32 @@ class Grid:
 
 
 class PheromoneEnzymeSolver:
+    GREEK_LETTERS = {
+      "alpha":   ("α", "Α"),
+      "beta":    ("β", "Β"),
+      "gamma":   ("γ", "Γ"),
+      "delta":   ("δ", "Δ"),
+      "epsilon": ("ε", "Ε"),
+      "zeta":    ("ζ", "Ζ"),
+      "eta":     ("η", "Η"),
+      "theta":   ("θ", "Θ"),
+      "iota":    ("ι", "Ι"),
+      "kappa":   ("κ", "Κ"),
+      "lambda":  ("λ", "Λ"),
+      "mu":      ("μ", "Μ"),
+      "nu":      ("ν", "Ν"),
+      "xi":      ("ξ", "Ξ"),
+      "omicron": ("ο", "Ο"),
+      "pi":      ("π", "Π"),
+      "rho":     ("ρ", "Ρ"),
+      "sigma":   ("σ", "Σ"),
+      "tau":     ("τ", "Τ"),
+      "upsilon": ("υ", "Υ"),
+      "phi":     ("φ", "Φ"),
+      "chi":     ("χ", "Χ"),
+      "psi":     ("ψ", "Ψ"),
+      "omega":   ("ω", "Ω"),
+    }
 
     def __init__(self, params: Params, grid: Grid, show_plots=False, debug=False):
         self.p = params
@@ -373,7 +399,7 @@ class PheromoneEnzymeSolver:
 
     def plot_axis(self, axes, color="blue", savepath=None):
         # j_axis = [0, -1]  # theta closest to 0 AND pi (toward AND away from source)
-        axes = ax
+        ax = axes
         plt.gcf().set_size_inches(10, 6)
         min_r_index = np.where(self.r >= self.p.rho0)[0][0]
         max_r_index = np.where(self.r >= self.p.rho0 + 2)[0][0]
@@ -421,6 +447,26 @@ class PheromoneEnzymeSolver:
             plt.savefig(savepath, dpi=150)
             plt.close()
 
+
+    def greek(self, s: str) -> str:
+      """Convert a romanized Greek letter name to its Unicode symbol.
+
+      Capitalization rules:
+          - ALL CAPS  (e.g. "ALPHA") → uppercase Greek letter (Α)
+          - Title case (e.g. "Alpha") → uppercase Greek letter (Α)
+          - Anything else (e.g. "alpha") → lowercase Greek letter (α)
+
+      Returns None if the string is not a recognized Greek letter name.
+      """
+      key = s.strip().lower()
+      if key not in self.GREEK_LETTERS:
+          return s
+
+      lower, upper = self.GREEK_LETTERS[key]
+      if s.isupper() or (s[0].isupper() and s[1:].islower()):
+          return upper
+      return lower
+
     def plot_metric_heatmap (self, name="SNR", fnc=snr, param1="beta", param2="zeta", param1_max=5, param2_max=5, num_cells_per_side=25, ax=None, show_max=False, **kwargs):
       param1_vals, param2_vals = np.meshgrid(np.logspace(-2, np.log10(param1_max), num=num_cells_per_side), np.arange(0, param2_max, param2_max / num_cells_per_side))
       print(param1_vals)
@@ -455,9 +501,9 @@ class PheromoneEnzymeSolver:
       print(f"Max {name} = ({max_val}), reached at {param1} = {max_param1}, {param2} = {max_param2}")
       if show_max:
         ax.plot(max_param1, max_param2, 'x')
-      ax.set_xlabel(f"{greek(param1)}", fontsize="x-large")
+      ax.set_xlabel(f"{self.greek(param1)}", fontsize="x-large")
       # label = "$\\sqrt{{\\varepsilon}}$" if sqrt_eps else "$\\varepsilon$"
-      ax.set_ylabel(f"{greek(param2)}", fontsize="x-large")
+      ax.set_ylabel(f"{self.greek(param2)}", fontsize="x-large")
       ax.set_xticks([0, param1_max])
       ax.set_yticks([0, param2_max])
       ax.tick_params(labelsize="x-large")
@@ -488,7 +534,7 @@ class PheromoneEnzymeSolver:
           self.Q = params.gamma / self.R
           self._build_source()
           self.p.print_params()
-          print(f"Current iteration: {param1} = {param1_val}, {param2} = {param2_val}")
+          # print(f"Current iteration: {param1} = {param1_val}, {param2} = {param2_val}")
           self.solve(max_iter=50000, tol=1e-7)
           # self.plot_2d()
           val = fnc(self)
@@ -499,8 +545,10 @@ class PheromoneEnzymeSolver:
             max_val = val
           row = np.append(row, val)
         vals.append(row)
+        print(f"So far: Max val = {max_val}, reached at {param1} = {max_param1}, {param2} = {max_param2}")
 
-      print(f"Max val = ({max_val}), reached at {param1} = {max_param1}, {param2} = {max_param2}")
+
+      print(f"Final: Max val = {max_val}, reached at {param1} = {max_param1}, {param2} = {max_param2}")
       return max_param1, max_param2, max_val
 
     def max_val_for_multiple_kappas(self, kappa_min, kappa_max, param1="beta", param2="zeta", metric_fnc=bound_snr):
@@ -512,6 +560,7 @@ class PheromoneEnzymeSolver:
       max_param1_vals = []
       max_param2_vals = []
       for val in kappa_vals:
+        print(f"Kappa = {val}")
         self.p.set_param("kappa", val)
         max_param1, max_param2, max_val= self.max_metric_val(metric_fnc, param1, param2, num_cells_per_side=num_cells)
         max_param1_vals.append(max_param1)
@@ -523,7 +572,7 @@ class PheromoneEnzymeSolver:
       plt.xlabel(param1)
       plt.ylabel(param2)
       plt.gcf().colorbar(sc)
-      plt.savefig(f"bound SNR for {param2} and {param1} - kappa from {10 ** kappa_min} to {10 ** kappa_max} - .png")
+      plt.savefig(f"bound SNR for {param2} and {param1} - {num_kappas} kappas from {10 ** kappa_min} to {10 ** kappa_max} - {num_cells} cells per param.png")
 
 if __name__=="__main__":
   params = Params(
